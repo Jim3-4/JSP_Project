@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>McMinju</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
+  
+  
+  <!-- p.415 커넥션 풀을 사용하기 위해 설정한 코딩 -->
+<resource-ref>
+	 <description>Oracle Datasource example</description>
+	 <res-ref-name>jdbc/myoracle</res-ref-name>
+	 <res-type>javax.sql.DataSource</res-type>
+	 <res-auth>Container</res-auth>
+</resource-ref>
+
+<!-- 필터를 위한 코딩 뒤에 자바 꼭 없애기 .java  *은 모든 페이지에 적용-->
+
+<filter>
+	<filter-name>characterEncodingFilter</filter-name>
+	<filter-class>com.filter.CharacterEncodingFilter</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+</filter>
+<filter-mapping>
+	<filter-name>characterEncodingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+	<dispatcher>REQUEST</dispatcher>
+</filter-mapping>
+
+
+
+<servlet>
+	<servlet-name>dispatcher</servlet-name>
+	<servlet-class>controller.DispatcherServlet</servlet-class>
+	<init-param>
+			<param-name>path</param-name>
+			<param-value>/McPromotion/command.properties</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>dispatcher</servlet-name>
+	<url-pattern>*.do</url-pattern>
+</servlet-mapping>
+  
+  
+  
+  
+  
+</web-app>
