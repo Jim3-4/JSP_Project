@@ -73,7 +73,7 @@
 
  
 
-✔️회원가입 
+###✔️회원가입 
 
 
 
@@ -99,7 +99,7 @@
 
 **📌Handler** 
 
-  <a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/command/JoinMemberHandler.java">JoinMemberHandler 소스코드 보기</a>
+  <a href="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/command/JoinMemberHandler.java">JoinMemberHandler 소스코드 보기</a>
 
 - register.jsp  form태그에 <form action="<%=contextPath %>/md/enterJoin.do" method="post" > 회원정보이므로 url에 표시되지 않도록 post방식으로 지정하였습니다. enterJoin.do요청으로 컨트롤러에 의해 JoinMemberHandler가 실행됩니다. 
 - request.getParameter("")으로 태그들의 값들을 받아옵니다. 
@@ -110,9 +110,9 @@
 
 
 <br>
-**📌Service** 
+**📌Service ** 
 
-<a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/service/MemberService.java"> MemberService 소스코드 보기</a>
+<a href="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/service/MemberService.java"> MemberService 소스코드 보기</a>
 
 - 동일한 요청에 대한 MemberService 클래스는 싱글톤으로 구성하였습니다 . 요청이 많은 트래픽 사이트에서는 계속 객체를 생성하게 되면 메모리 낭비가 심하기 때문입니다. 
 - 주소를 입력하는 메소드에는 MemAdrDTO가 매개변수입니다. 주소정보를 입력하고 해당하는 주소코드를 리턴합니다.
@@ -129,7 +129,7 @@
 
 **📌 MemberDAOImpl** 
 
-<a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAOImpl.java">MemberDAOImpl 소스코드 보기 </a>
+<a href="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAOImpl.java">MemberDAOImpl 소스코드 보기 </a>
 
 - 멤버가 추가될때마다 자동으로 순번이 붙도록 시퀀스를 생성해주었습니다. 회원코드는'm'+숫자 형식으로 되어있기 때문에 문자열 m을 이어주었습니다. 
 - adrCode를 가져오기 위해서 select문의 sql을 한번 더 실행시켜주었습니다. 
