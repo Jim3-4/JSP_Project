@@ -79,11 +79,44 @@
 
 <img src="https://github.com/Jim3-4/JSP_Project/blob/main/img/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.png">
 
-▪️Member 테이블에 담기는 주소는 주소가 아닌 주소코드이기 때문에 MemAdr 테이블을 이용하여 메인주소와 상세주소를 담아주어야 합니다. 그렇기 때문에 MemberDTO에 추가로 MemAdrDTO  객체를 만들었습니다. <br>
-▪️ 주소코드는  회원정보의 외래키로 속하기 때문에, 주소테이블의 데이터를 먼저 처리해야 합니다.  <br>
-▪️(SQL) Insert문에서 여러 값을 넣을때는 (Member와 MemAdr 테이블을 조인한 ) 서브쿼리를 사용할 수 없기  때문에 (값 1개만 넣을때는 편법으로 가능하다고 합니다.)  먼저 주소테이블에 데이터를 넣어주는 메소드를 실행시키고, 그 후에 멤버테이블에 고객정보를 넣어주는 메소드를 실행 시켰습니다.   <br>
+- Member 테이블에 담기는 주소는 주소가 아닌 주소코드입니다. 주소속성을 바로 사용하지 않고 주소 코드로 사용한 이유중 첫번째로 주소는  메인주소, 상세주소 그리고 특이사항이 포함되어 있는데 칼럼은 다중값을 가질 수 없습니다. 두번째로 한 엔티티내에 유사한 속성이 반복되는 경우에도 제 1 정규화의 대상이 되기 때문에, 제 1 정규화를 통해 주소테이블 따로 만들어주었습니다.  
+- 주소코드는  회원정보의 외래키로 속하기 때문에, 주소테이블의 데이터를 먼저 처리해야 합니다.  
+- (SQL) Insert문에서 여러 값을 넣을때는 (Member와 MemAdr 테이블을 조인한 ) 서브쿼리를 사용할 수 없기  때문에 (값  1개만 넣을때는 편법으로 가능하다고 합니다.)  먼저 주소테이블에 데이터를 넣어주는 메소드를 실행시키고, 그 후에 멤버테이블에  고객정보를 넣어주는 메소드를 실행 시켰습니다.   
 
 
+
+ **📌properties** 
+
+```
+/md/mdmain.do= command.MdMainHandler
+/md/logon.do = command.MdMainLogonHandler
+/md/guest.do = command.GuestHandler
+/md/register.do = command.RegisterHandler
+/md/enterJoin.do=command.JoinMemberHandler
+```
+
+ 
+
+**📌Handler** 
+
+  <a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/command/JoinMemberHandler.java">JoinMemberHandler 소스코드보기</a>
+
+- register.jsp  form태그에 <form action="<%=contextPath %>/md/enterJoin.do" method="post" > 회원정보이므로 url에 표시되지 않도록 post방식으로 지정하였습니다. enterJoin.do요청으로 컨트롤러에 의해 JoinMemberHandler가 실행됩니다. 
+- request.getParameter("")으로 태그들의 값들을 받아옵니다. 
+- MemberDTO와 MemAdrDTO에 해당 값들로 객체를 생성합니다. 
+- service클래스로 객체 두개를 모두 전달합니다. 
+- 회원가입이 완료되면 1을 반환하는데, 그 중에서도 인증방식을 선택하는 select태그 값의 value를 받아와 ,  이메일이라면 , 즉 value값이 1 이라면 이메일로 전송되었다는 문구를 띄운 페이지를 리턴합니다. 반대로 휴대폰번호를  선택하였다면 (value ==2) 문자메세지로 전송되었다는 문구를 띄운 페이지를 리턴합니다. 
+- select 태그의 값을 불러올 때는 request.getParameterValues()를 사용하고, 선택된 한개의 값만 리턴됩니다.(배열로 받아야합니다. ) 
+
+
+
+**📌Service** 
+
+<a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/service/MemberService.java"> MemberService 소스코드 보기</a>
+
+-  MemberService는 싱글톤으로 구성하였습니다 . 요청이 많은 트래픽 사이트에서는 계속 객체를 생성하게 되면 메모리 낭비가 심하기 때문입니다.
+- 주소를 입력하는 메소드에는 MemAdrDTO가 매개변수입니다. 주소정보를 입력하고 해당하는 주소코드를 리턴합니다.
+- 회원정보를 입력하는 메소드에는 MemberDTO객체와 리턴받은 주소코드가 매개변수입니다.
 
 
 
