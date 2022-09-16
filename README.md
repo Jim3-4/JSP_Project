@@ -73,7 +73,7 @@
 
  
 
-###✔️회원가입 
+### ✔️회원가입 
 
 
 
@@ -82,7 +82,7 @@
 - Member 테이블에 담기는 주소는 주소가 아닌 주소코드입니다. 주소속성을 바로 사용하지 않고 주소 코드로 사용한 이유중 첫번째로 주소는  메인주소, 상세주소 그리고 특이사항이 포함되어 있는데 칼럼은 다중값을 가질 수 없습니다. 두번째로 한 엔티티내에 유사한 속성이 반복되는 경우에도 제 1 정규화의 대상이 되기 때문에, 제 1 정규화를 통해 주소테이블 따로 만들어주었습니다.  
 - 주소코드는  회원정보의 외래키로 속하기 때문에, 주소테이블의 데이터를 먼저 처리해야 합니다.  
 - (SQL) Insert문에서 여러 값을 넣을때는 (Member와 MemAdr 테이블을 조인한 ) 서브쿼리를 사용할 수 없기  때문에 (값  1개만 넣을때는 편법으로 가능하다고 합니다.)  먼저 주소테이블에 데이터를 넣어주는 메소드를 실행시키고, 그 후에 멤버테이블에  고객정보를 넣어주는 메소드를 실행 시켰습니다.   
-<br>
+  <br>
 
 
  **📌properties** 
@@ -94,8 +94,9 @@
 /md/register.do = command.RegisterHandler
 /md/enterJoin.do=command.JoinMemberHandler
 ```
+
 <br>
- 
+
 
 **📌Handler** 
 
@@ -129,13 +130,18 @@
 
 **📌 MemberDAOImpl** 
 
-<a href="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAOImpl.java">MemberDAOImpl 소스코드 보기 </a>
+<a href="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAOImpl.java">MemberDAOImpl 소스코드 보기 </a>
 
 - 멤버가 추가될때마다 자동으로 순번이 붙도록 시퀀스를 생성해주었습니다. 회원코드는'm'+숫자 형식으로 되어있기 때문에 문자열 m을 이어주었습니다. 
 - adrCode를 가져오기 위해서 select문의 sql을 한번 더 실행시켜주었습니다. 
 
-
 <br>
+
+### **✔️로그인**
+
+
+
+
 
 ✔️로그인
 
