@@ -82,7 +82,7 @@
 - Member 테이블에 담기는 주소는 주소가 아닌 주소코드입니다. 주소속성을 바로 사용하지 않고 주소 코드로 사용한 이유중 첫번째로 주소는  메인주소, 상세주소 그리고 특이사항이 포함되어 있는데 칼럼은 다중값을 가질 수 없습니다. 두번째로 한 엔티티내에 유사한 속성이 반복되는 경우에도 제 1 정규화의 대상이 되기 때문에, 제 1 정규화를 통해 주소테이블 따로 만들어주었습니다.  
 - 주소코드는  회원정보의 외래키로 속하기 때문에, 주소테이블의 데이터를 먼저 처리해야 합니다.  
 - (SQL) Insert문에서 여러 값을 넣을때는 (Member와 MemAdr 테이블을 조인한 ) 서브쿼리를 사용할 수 없기  때문에 (값  1개만 넣을때는 편법으로 가능하다고 합니다.)  먼저 주소테이블에 데이터를 넣어주는 메소드를 실행시키고, 그 후에 멤버테이블에  고객정보를 넣어주는 메소드를 실행 시켰습니다.   
-
+<br>
 
 
  **📌properties** 
@@ -94,7 +94,7 @@
 /md/register.do = command.RegisterHandler
 /md/enterJoin.do=command.JoinMemberHandler
 ```
-
+<br>
  
 
 **📌Handler** 
@@ -109,7 +109,7 @@
 - select 태그의 값을 불러올 때는 request.getParameterValues()를 사용하고, 선택된 한개의 값만 리턴됩니다.(배열로 받아야합니다. ) 
 
 
-
+<br>
 **📌Service** 
 
 <a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/service/MemberService.java"> MemberService 소스코드 보기</a>
@@ -118,13 +118,14 @@
 - 주소를 입력하는 메소드에는 MemAdrDTO가 매개변수입니다. 주소정보를 입력하고 해당하는 주소코드를 리턴합니다.
 - 회원정보를 입력하는 메소드에는 MemberDTO객체와 리턴받은 주소코드가 매개변수입니다.
 
-
+<br>
 
 **📌 MemberDAO  (interface)** 
 
 <a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAO.java"> MemberDAO 소스코드 보기</a>
 
 - MemberDAO 인터페이스를 따로 만든 이유는, 인터페이스를 사용하게 되면 객체지향적으로 설계가 되기 때문에 객체 간의 결합이 느슨해지고 변경이나 확장이 용이해집니다. 인터페이스 구현체를 수정하면 되기 때문입니다. 
+  <br>
 
 **📌 MemberDAOImpl** 
 
@@ -134,7 +135,7 @@
 - adrCode를 가져오기 위해서 select문의 sql을 한번 더 실행시켜주었습니다. 
 
 
-
+<br>
 
 ✔️로그인
 
