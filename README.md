@@ -10,7 +10,7 @@
 
 - 대기업의 정형화된 시스템에 주목하였고 백엔드 작업에 초점을 두어 요구분석을 먼저 진행하였습니다. 
 - 그 후에 개념적 , 논리적, 물리적 모델링을 진행하였습니다. 
-- 업무를 분담하여 요구분석에 알맞는 코를 작성하였습니다. 
+- 업무를 분담하여 요구분석에 알맞는 코드를 작성하였습니다. 
 
 
 
@@ -127,7 +127,7 @@
 
 **📌 MemberDAO  (interface)** 
 
-<a href="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAO.java"> MemberDAO 소스코드 보기</a>
+<a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAO.java"> MemberDAO 소스코드 보기</a>
 
 - MemberDAO 인터페이스를 따로 만든 이유는, 인터페이스를 사용하게 되면 객체지향적으로 설계가 되기 때문에 객체 간의 결합이 느슨해지고 변경이나 확장이 용이해집니다. 인터페이스 구현체를 수정하면 되기 때문입니다. 
   <br>
@@ -188,7 +188,7 @@
 
 **📌 MemberDAO  (interface)** 
 
-<a href="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAO.java">MemberDAO 소스코드 보기</a>
+<a src="https://github.com/Jim3-4/JSP_Project/blob/main/mcNew/src/main/java/persistence/MemberDAO.java"> MemberDAO 소스코드 보기</a>
 
 - MemberDAO 인터페이스를 따로 만든 이유는, 인터페이스를 사용하게 되면 객체지향적으로 설계가 되기 때문에 객체 간의 결합이 느슨해지고 변경이나 확장이 용이해집니다. 인터페이스 구현체를 수정하면 되기 때문입니다. 
   <br>
