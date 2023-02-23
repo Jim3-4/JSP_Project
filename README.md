@@ -44,18 +44,14 @@
 
 ## 🌞논리적 모델링
 
-<img src="https://github.com/Jim3-4/JSP_Project/blob/main/img/%EA%B4%80%EB%A6%AC%EC%9E%90%EB%A9%94%EB%89%B4.png">
 
-<img src="https://github.com/Jim3-4/JSP_Project/blob/main/img/%EA%B4%80%EB%A6%AC%EC%9E%90%EA%B4%80%EB%A0%A8.png">
+<img src="https://github.com/Jim3-4/JSP_Project/blob/main/img/데이터구조_주문.jpg">
 
-<img src="https://github.com/Jim3-4/JSP_Project/blob/main/img/%EC%A3%BC%EB%AC%B8.png">
-
-<img src="https://github.com/Jim3-4/JSP_Project/blob/main/img/%ED%9A%8C%EC%9B%90%EA%B4%80%EB%A0%A8.png">
+<img src="https://github.com/Jim3-4/JSP_Project/blob/main/img/데이터구조_소개.jpg">
 
 
 
- 다음과 같이 설계하였습니다. 테이블은  총33개로 구성되어 있습니다.
-
+ 다음과 같이 설계하였습니다.
 
 
 ## 🙋 My Role
